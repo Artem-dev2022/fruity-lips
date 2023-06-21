@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <img class="header__logo" src="img/logo.png" alt="logo">
+
+            <div class="header__right">
+                <nav class="header__nav">
+                    <ul class="header__list">
+                        <li class="header__item header__item--active">
+                            <span>Banana</span>
+                        </li>
+                        <li class="header__item">Coconut</li>
+                        <li class="header__item">Strawberry</li>
+                        <li class="header__item">Blackberry</li>
+                        <li class="header__item">Kiwi</li>
+                    </ul>
+                </nav>
+                <button class="header__btn" id="taste">Taste Drive</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container main__container">
+            <div class="main__left">
+                <h1 class="main__title">Banana</h1>
+                <p class="main__text">Bananas are a popular tropical fruit known for their distinctive yellow color and sweet taste. They are botanically classified as berries and grow in clusters on large herbaceous plants. Bananas are rich in essential nutrients such as potassium, vitamin C, and dietary fiber, making them a convenient and healthy snack option for athletes and individuals of all ages.</p>
+            </div>
+
+            <img class="main__img" src="img/banana.png" alt="fruits">
+        </div>
+
+        <div class="nav-buttons">
+            <button class="nav-buttons__btn" id="prev">
+                <svg width="27" height="29" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M26 14.5H2M2 14.5L15.4634 1M2 14.5L15.4634 28" stroke="#363839" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+
+            <button class="nav-buttons__btn" id="next">
+                <svg width="27" height="29" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 14.5H25M25 14.5L11.5366 1M25 14.5L11.5366 28" stroke="#363839" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>
