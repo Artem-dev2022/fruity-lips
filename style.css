@@ -44,12 +44,6 @@ body {
     height: 65px;
 }
 
-.header__right {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
 .header__list {
     display: flex;
     align-items: center;
@@ -58,7 +52,7 @@ body {
 }
 
 .header__item {
-    padding: 7px 22px;
+    padding: 7px 24px;
     font-family: 'Figtree';
     font-style: normal;
     font-weight: 600;
@@ -83,6 +77,22 @@ body {
     border-radius: 68px;
 }
 
+.banana::after {
+    background: linear-gradient(rgba(255, 238, 87, 1), rgba(255, 185, 48, 1));
+}
+.coconut::after {
+    background: linear-gradient(225deg, #CEB7B4 0%, #B57049 100%);
+}
+.strawberry::after {
+    background: linear-gradient(225deg, #FBC9C9 0%, #CF3939 100%);
+}
+.blackberry::after {
+    background: linear-gradient(225deg, #DCB7F2 0%, #814C62 100%);
+}
+.kiwi::after {
+    background: linear-gradient(225deg, #F2DBAF 0%, #9C9344 100%);
+}
+
 .header__item--active::after {
     content: '';
     display: block;
@@ -91,29 +101,15 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: linear-gradient(rgba(255, 238, 87, 1), rgba(255, 185, 48, 1));
+    
     border-radius: 68px;
     z-index: -1;
-}
-
-.header__btn {
-    padding: 0px 16px;
-    width: 157px;
-    height: 48px;
-    background: linear-gradient(225.35deg, #FFEE57 0%, #FFB930 97.53%);
-    border-radius: 32px;
-
-    font-family: 'Figtree';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
-    color: #FFFFFF;
 }
 
 .main {
     position: relative;
     padding: 160px 0;
+    overflow: hidden;
 }
 
 .main__container {
@@ -123,13 +119,14 @@ body {
 
 .main__img {
     margin-top: 80px;
+    width: 751px;
+    height: 515px;
+    object-fit: contain;
 }
 
 .main__left {
     padding-top: 160px;
-    animation: show 0.5s ease-in-out;
-   /*  animation: hide 0.5s ease-in-out; */
-   /* animation: show 0.5s ease-in-out, hide 0.5s ease-in-out 0.5s forwards; */
+    animation: show 0.3s ease-in-out;
 }
 
 @keyframes show {
@@ -159,9 +156,7 @@ body {
 }
 
 .main__img {
-    animation: appear 0.5s ease-in-out;
-    /* animation: disappear 0.5s ease-in-out; */
-    /* animation: appear 0.5s ease-in-out, disappear 0.5s ease-in-out 0.5s forwards; */
+    animation: appear 0.3s ease-in-out;
 }
 
 @keyframes appear {
@@ -225,8 +220,23 @@ body {
 }
 
 .nav-buttons__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 60px;
     height: 60px;
     border-radius: 50%;
     background-color: #FFFFFF;
+}
+
+.nav-buttons__btn svg {
+    transition: all 0.2s ease-in-out;
+}
+
+#next:hover svg{
+    transform: translateX(7px);
+}
+
+#prev:hover svg{
+    transform: translateX(-7px);
 }

@@ -1,10 +1,10 @@
-const tasteBtn = document.getElementById('taste');
 const nextBtn = document.getElementById('next');
 const prevBtn = document.getElementById('prev');
 const text = document.querySelector('.main__left');
 const title = document.querySelector('.main__title');
 const desription = document.querySelector('.main__text');
 const img = document.querySelector('.main__img');
+const headerNavItems = document.querySelectorAll('.header__item');
 
 let current = localStorage.getItem('current');
 
@@ -12,6 +12,8 @@ if (!localStorage.getItem('current')) {
     localStorage.setItem('current', 'banana')
     current = localStorage.getItem('current')
 }
+
+resetActive()
 
 const NEXT_IMG = {
     'banana': 'coconut',
@@ -37,33 +39,48 @@ const DESCRIPTION = {
     'kiwi': 'Kiwi are vibrant red fruits with a sweet and slightly tart flavor. They are a member of the rose family and are known for their juicy texture and small seeds that cover their surface. Packed with antioxidants, vitamins, and dietary fiber, strawberries are not only delicious but also offer numerous health benefits, including promoting heart health and boosting the immune system.',
 }
 
-title.textContent = current
-desription.textContent = DESCRIPTION[current]
+title.textContent = current;
+desription.textContent = DESCRIPTION[current];
 img.src = `img/${current}.png`;
 
-tasteBtn.addEventListener('click', () => {
-    document.body.style.background = 'linear-gradient(225.35deg, red 0%, blue 97.53%)'
-})
-
 nextBtn.addEventListener('click', () => {
-    render(NEXT_IMG)
+    let current = NEXT_IMG[localStorage.getItem('current')];
+    render(current)
 })
 
 prevBtn.addEventListener('click', () => {
-    render(PREV_IMG)
+    let current = PREV_IMG[localStorage.getItem('current')];
+    render(current)
 })
 
-function render(obj){
-    let current = obj[localStorage.getItem('current')];
-    console.log(current)
-    text.style.animation = 'hide 0.5s ease-in-out forwards'
-    img.style.animation = 'disappear 0.5s ease-in-out forwards'
+function render(current){
+    text.style.animation = 'hide 0.3s ease-in-out forwards'
+    img.style.animation = 'disappear 0.3s ease-in-out forwards'
     setTimeout(() => {
         img.src = `img/${current}.png`;
         title.textContent = current
         desription.textContent = DESCRIPTION[current]
         localStorage.setItem('current', current);
-        text.style.animation = 'show 0.5s ease-in-out forwards'
-        img.style.animation = 'appear 0.5s ease-in-out forwards'
-    }, 500);
+        resetActive()
+        text.style.animation = 'show 0.3s ease-in-out forwards'
+        img.style.animation = 'appear 0.3s ease-in-out forwards'
+    }, 300);
+}
+
+headerNavItems.forEach(item => {
+    item.addEventListener('click', () => {
+        localStorage.setItem('current', item.children[0].innerHTML.toLowerCase())
+        let current = localStorage.getItem('current')
+        resetActive()
+        render(current)
+    })
+})
+
+function resetActive(){
+    headerNavItems.forEach(item => {
+        item.classList.remove('header__item--active');
+        if (item.children[0].innerHTML.toLowerCase() === localStorage.getItem('current')) {
+            item.classList.add('header__item--active')
+        }
+    })
 }
